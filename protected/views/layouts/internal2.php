@@ -76,7 +76,7 @@
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.fancybox-media.js"></script> <!-- Fancybox for Media -->
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.tweet.js"></script> 
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins.js"></script> 
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/main.js"></script> 
+
 
 
 </head>
@@ -93,7 +93,7 @@
                 $this->widget('zii.widgets.CMenu',array(
 				'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'Videos', 'url'=>array('/video/index')),
+				array('label'=>'Satellite Story', 'url'=>array('/video/index')),
 				array('label'=>'Best Videos', 'url'=>array('/site/contact')),
 				array('label'=>'Best Topics', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),

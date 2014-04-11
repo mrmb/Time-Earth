@@ -13,6 +13,7 @@
   var poly, map;
   var markers = [];
   var path = new google.maps.MVCArray;
+  var infoWindow;
 
   function initialize() {
     var uluru = new google.maps.LatLng(-25.344, 131.036);
@@ -32,6 +33,25 @@
     poly.setPaths(new google.maps.MVCArray([path]));
 
     google.maps.event.addListener(map, 'click', addPoint);
+    google.maps.event.addListener(poly, 'click', showInfo);
+
+    infoWindow = new google.maps.InfoWindow();	
+  }
+
+  function showInfo(event){
+  	var vertices = this.getPath();
+
+  var contentString = '<b><?php echo CHtml::link("Press for a new video",array("video/new")); ?> </b>' ;
+  	// Iterate over the vertices.
+  	for (var i =0; i < vertices.getLength(); i++) {
+    	var xy = vertices.getAt(i);
+    	contentString += '<br>' + 'Coordinate ' + i + ':  ' + xy.lat() + ',' + xy.lng();
+  	}
+
+  	// Replace the info window's content and position.
+  	infoWindow.setContent(contentString);
+	infoWindow.setPosition(event.latLng);
+  	infoWindow.open(map);
   }
 
   function addPoint(event) {

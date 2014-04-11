@@ -22,4 +22,12 @@ class VideoController extends Controller
 		$this->render('index');
 	}
 
+	public function actionNew(){
+		// $baseUrl = Yii::app()->baseUrl; 
+		// $cs = Yii::app()->getClientScript();
+		// $cs->registerScriptFile($baseUrl.'/js/map.js');
+
+
+		$this->render('new');
+	}
 }

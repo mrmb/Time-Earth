@@ -80,7 +80,7 @@
                 $this->widget('zii.widgets.CMenu',array(
 				'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'Videos', 'url'=>array('/video/index')),
+				array('label'=>'Satellite Story', 'url'=>array('/video/index')),
 				array('label'=>'Best Videos', 'url'=>array('/site/contact')),
 				array('label'=>'Best Topics', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
