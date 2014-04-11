@@ -14,7 +14,7 @@
 		var random_zoom = Math.floor((Math.random() * 9));
 		var random_col = Math.floor(Math.random() * max_values[random_zoom+1]) ;
 		var random_row = Math.floor(Math.random() * max_values[random_zoom]);
-		alert("TILES: " + random_zoom + "/" + random_row + "/" + random_col);
+		//alert("TILES: " + random_zoom + "/" + random_row + "/" + random_col);
 		
 		var map_frames = 10;
 		
@@ -27,6 +27,7 @@
 				map_images[i] = new Image();
 				map_images[i].src = "http://map1.vis.earthdata.nasa.gov/wmts-geo/MODIS_Terra_CorrectedReflectance_TrueColor/default/"+getDateFormat(show_date)+"/EPSG4326_250m/"+getRandomTile()+".jpg";
 				
+				//Next day
 				show_date.setDate(show_date.getDate() + 1);
 			}
 			
@@ -36,13 +37,13 @@
 		
 		function randomDate(){
 			var x =  new Date(min_date.getTime() + Math.random() * (max_date.getTime() - min_date.getTime()));
-			alert("RANDOM: " + x.getFullYear()+"-"+addzero(x.getMonth()+1)+"-"+addzero(x.getDate()+1));
+			//alert("RANDOM: " + x.getFullYear()+"-"+addzero(x.getMonth()+1)+"-"+addzero(x.getDate()+1));
 			return x;
 		}
 		
 		function getDateFormat(the_date){
 			//alert("DATE: " + the_date.getFullYear()+"-"+addzero(the_date.getMonth()+1)+"-"+addzero(the_date.getDate()+1));
-			return the_date.getFullYear()+"-"+addzero(the_date.getMonth()+1)+"-"+addzero(the_date.getDate()+1);
+			return the_date.getFullYear()+"-"+addzero(the_date.getMonth()+1)+"-"+addzero(the_date.getDate());
 		}
 		
 		function getRandomTile(){
@@ -55,6 +56,7 @@
 					step_count =0;
 				}
 				
+				//Set new image
 				$("#my_rand_image").attr("src", map_images[step_count].src);
 				
 				step_count=step_count+1;
@@ -75,6 +77,6 @@
 </head> 
 <body>
 <!-- TEMP IMAGE MEANWHILE -->
-<img id="my_rand_image" src="http://map1.vis.earthdata.nasa.gov/wmts-geo/MODIS_Terra_CorrectedReflectance_TrueColor/default/2012-07-09/EPSG4326_250m/0/0/0.jpg" width="450" />
+<img id="my_rand_image" src="" width="450" />
 </body>
 </html>
