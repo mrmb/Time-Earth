@@ -16,12 +16,14 @@
 		var random_row = Math.floor(Math.random() * max_values[random_zoom]);
 		alert("TILES: " + random_zoom + "/" + random_row + "/" + random_col);
 		
+		var map_frames = 10;
+		
 		var interval_time = 1000;
 		var step_count = 0;
 
 		var map_images = new Array()
 		function preloadMapImates() {
-			for (i = 0; i < 10; i++) {
+			for (i = 0; i < map_frames; i++) {
 				map_images[i] = new Image();
 				map_images[i].src = "http://map1.vis.earthdata.nasa.gov/wmts-geo/MODIS_Terra_CorrectedReflectance_TrueColor/default/"+getDateFormat(show_date)+"/EPSG4326_250m/"+getRandomTile()+".jpg";
 				
@@ -49,7 +51,7 @@
 		
 		function imgChange(){ 
 			try{
-				if(step_count>=10){
+				if(step_count>=map_frames){
 					step_count =0;
 				}
 				
