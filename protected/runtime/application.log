@@ -1,0 +1,36 @@
+2014/04/11 22:17:37 [error] [php] Missing argument 2 for CClientScript::registerScript(), called in /Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php on line 16 and defined (/Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CClientScript.php:618)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(286): VideoController->runAction()
+#2 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(265): VideoController->runActionWithFilters()
+#3 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CWebApplication.php(282): VideoController->run()
+#4 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /Applications/XAMPP/xamppfiles/htdocs/earth/index.php(13): CWebApplication->run()
+REQUEST_URI=/earth/index.php?r=video/index
+in /Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php (16)
+in /Applications/XAMPP/xamppfiles/htdocs/earth/index.php (13)
+2014/04/11 22:17:49 [error] [php] Missing argument 2 for CClientScript::registerScript(), called in /Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php on line 16 and defined (/Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CClientScript.php:618)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(286): VideoController->runAction()
+#2 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(265): VideoController->runActionWithFilters()
+#3 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CWebApplication.php(282): VideoController->run()
+#4 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /Applications/XAMPP/xamppfiles/htdocs/earth/index.php(13): CWebApplication->run()
+REQUEST_URI=/earth/index.php?r=video/index
+in /Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php (16)
+in /Applications/XAMPP/xamppfiles/htdocs/earth/index.php (13)
+2014/04/11 22:17:50 [error] [php] Missing argument 2 for CClientScript::registerScript(), called in /Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php on line 16 and defined (/Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CClientScript.php:618)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(286): VideoController->runAction()
+#2 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(265): VideoController->runActionWithFilters()
+#3 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CWebApplication.php(282): VideoController->run()
+#4 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /Applications/XAMPP/xamppfiles/htdocs/earth/index.php(13): CWebApplication->run()
+REQUEST_URI=/earth/index.php?r=video/index
+in /Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php (16)
+in /Applications/XAMPP/xamppfiles/htdocs/earth/index.php (13)

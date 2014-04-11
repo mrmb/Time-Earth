@@ -9,10 +9,16 @@ class VideoController extends Controller
 	 * when an action is not explicitly requested by users.
 	 */
 
-	public $layout='//layouts/internal';
+	public $layout='//layouts/internal2';
 	
-	public function actionIndex()
-	{
+
+
+	public function actionIndex(){
+		// $baseUrl = Yii::app()->baseUrl; 
+		// $cs = Yii::app()->getClientScript();
+		// $cs->registerScriptFile($baseUrl.'/js/map.js');
+
+
 		$this->render('index');
 	}
 
