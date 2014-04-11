@@ -74,21 +74,26 @@
         <a id="mobile-nav" class="menu-nav" href="http://themes.alessioatzeni.com/html/brushed/#menu-nav"></a>
         
         <nav id="menu">
-            <ul id="menu-nav">
-                <!-- <li class="current"><a href="http://themes.alessioatzeni.com/html/brushed/#home-slider">Images</a></li>
-                <li class=""><a href="http://themes.alessioatzeni.com/html/brushed/#work">Video</a></li>
-                <li class=""><a href="http://themes.alessioatzeni.com/html/brushed/#about">Best</a></li>
-                <li class=""><a href="http://themes.alessioatzeni.com/html/brushed/#contact">Topics</a></li>
-                <li><a href="http://themes.alessioatzeni.com/html/brushed/shortcodes.html" class="external">About</a></li> -->
-                <?php $this->widget('zii.widgets.CMenu',array(
-				'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
+            <ul id="menu-nav2" style="">
+                <li class="current"><a href="#">Home</a></li>
+                <li class=""><a href="<?php  $this->createUrl('/video/index.php'); ?>">Videos</a></li>
+                <li class=""><a href="#work">Algo</a></li>
+                <li class=""><a href="http://www.google.com">Topics</a></li>
+                <li><a href="#" class="external">About</a></li>
+                
+                <?php echo CHtml::link('Link Text',array('/video/index')); ?>
+
+                
+                <?php 
+                // $this->widget('zii.widgets.CMenu',array(
+				// 'items'=>array(
+				// array('label'=>'Home', 'url'=>array('/site/index')),
+				// array('label'=>'Video', 'url'=>array('/video/index')),
+				// array('label'=>'Contact', 'url'=>array('/site/contact')),
+				// array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+				// array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+			         // ),
+		           ?>
             </ul>
         </nav>
         
