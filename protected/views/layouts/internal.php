@@ -66,7 +66,8 @@
 
 <body style="display: block;">
 
-	<div id="home-slider">	
+	<!-- Homepage Slider -->
+<div id="home-slider">  
     <div class="overlay"></div>
 
     <header>

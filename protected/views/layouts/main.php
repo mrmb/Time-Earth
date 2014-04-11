@@ -66,9 +66,7 @@
 
 <body style="display: block;">
 
-	<div id="home-slider">	
-    <div class="overlay"></div>
-
+	
     <header>
     <div class="sticky-wrapper" style="height: 60px;"><div class="sticky-nav">
         <a id="mobile-nav" class="menu-nav" href="http://themes.alessioatzeni.com/html/brushed/#menu-nav"></a>
