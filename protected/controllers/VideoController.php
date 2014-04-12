@@ -67,11 +67,9 @@ class VideoController extends Controller
 		$result = shell_exec( $command." 2>&1" );
 		//printf($data);
 		
-		/*echo CJSON::encode(array(
+		echo CJSON::encode(array(
             'result' => $result
         ));
-		
-		exit;*/
 	}
 
 

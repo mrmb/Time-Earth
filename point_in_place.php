@@ -58,41 +58,41 @@
 			generateGif(folder_images);
 			
 			//change_interval = setInterval( "imgChange()", interval_time);
-			image_gif_path = "videos/" + folder_images + "/" + folder_images + ".gif";
+			/*image_gif_path = "videos/" + folder_images + "/" + folder_images + ".gif";
 			
-			$("#my_rand_image").attr("src", image_gif_path);
+			$("#my_rand_image").attr("src", image_gif_path);*/
 		}
 		
 		function generateGif(folder){
 			$.ajax({
-				  type: "GET",
-				  url: "/index.php?r=video/GenerateVideo",
-				  data: ( {
+				type: "GET",
+				url: "/index.php?r=video/GenerateVideo",
+				data: ( {
 					'dir': folder
-				  } ) ,
-				  cache: false,
-				  dataType: "json",
-				  success: function(){
-					alert("DOne");
-				  } 
-				});
+				} ) ,
+				cache: false,
+				dataType: "json",
+				success: function(){
+					$("#my_rand_image").attr("src", "videos/" + folder + "/" + folder + ".gif");
+				 } 
+			});
 		}
 		
 		function download(folder, link, id){
 			$.ajax({
-				  type: "GET",
-				  url: "/index.php?r=video/StoreImage",
-				  data: ( {
+				type: "GET",
+				url: "/index.php?r=video/StoreImage",
+				data: ( {
 					'url': link,
 					'dir': folder,
 					'num': id
-				  } ) ,
-				  cache: false,
-				  dataType: "json",
-				  success: function(){
-					alert("DOne");
-				  } 
-				});
+				} ) ,
+				cache: false,
+				dataType: "json",
+				success: function(){
+					//alert("DOne");
+				} 
+			});
 		}
 		
 		function getDateFormat(the_date){
