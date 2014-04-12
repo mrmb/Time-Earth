@@ -221,6 +221,6 @@
 
 <!-- TEMP IMAGE MEANWHILE -->
 
-<img id="my_rand_image" src="" width="150" />
+<img id="my_rand_image" src="" />
 </body>
 </html>
