@@ -4,15 +4,16 @@
 	<script>
 		var change_interval;
 		
-		var show_date = new Date('2014-01-01');
+		//var show_date = new Date('2014-01-01');
 		
 		var base_lon = 640;
 		var base_lat = 320;
 		
-		var map_frames = 2;
 		var interval_time = 1000;
 		var map_images = new Array();
-		function getTiles(lon, lat, zoom){
+		function getTiles(from, frames, lon, lat, zoom){
+			var from_date = new Date(from);
+		
 			var tile_row = 0;
 			var tile_col = 0;
 			
@@ -41,14 +42,14 @@
 			
 			//alert(zoom+"/"+tile_row+"/"+tile_col);
 			
-			var folder_images = getDateFormat(show_date) + "_" + map_frames + "_" + zoom + "_" + tile_row + "_" + tile_col;
+			var folder_images = getDateFormat(from_date) + "_" + frames + "_" + zoom + "_" + tile_row + "_" + tile_col;
 			
-			for (i = 0; i < map_frames; i++) {
+			for(i = 0; i <= frames; i++) {
 				//Next day (for some reason it loads the deay before so we hafta start loading a +1
-				show_date.setDate(show_date.getDate() + 1);
+				from_date.setDate(from_date.getDate() + 1);
 				
 				//map_images[i] = new Image();
-				map_images[i] = "http://map1.vis.earthdata.nasa.gov/wmts-geo/MODIS_Terra_CorrectedReflectance_TrueColor/default/" + getDateFormat(show_date) + "/EPSG4326_250m/" + zoom + "/" + tile_row + "/" + tile_col + ".jpg";
+				map_images[i] = "http://map1.vis.earthdata.nasa.gov/wmts-geo/MODIS_Terra_CorrectedReflectance_TrueColor/default/" + getDateFormat(from_date) + "/EPSG4326_250m/" + zoom + "/" + tile_row + "/" + tile_col + ".jpg";
 				//$('#img_preload').append($('<img />').attr('src', map_images[i].src));
 				
 				download(folder_images, map_images[i], i);
@@ -98,6 +99,47 @@
 			return the_date.getFullYear()+"-"+addzero(the_date.getMonth()+1)+"-"+addzero(the_date.getDate());
 		}
 		
+		function isDate(txtDate)
+		{
+			var currVal = txtDate;
+			if(currVal == '')
+				return false;
+		  
+			//Declare Regex  
+			var rxDatePattern = /^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/; 
+			var dtArray = currVal.match(rxDatePattern); // is format OK?
+
+			if (dtArray == null)
+				return false;
+		 
+			//Checks for mm/dd/yyyy format.
+			dtMonth = dtArray[1];
+			dtDay= dtArray[3];
+			dtYear = dtArray[5];
+
+			if (dtMonth < 1 || dtMonth > 12)
+				return false;
+			else if (dtDay < 1 || dtDay> 31)
+				return false;
+			else if ((dtMonth==4 || dtMonth==6 || dtMonth==9 || dtMonth==11) && dtDay ==31)
+				return false;
+			else if (dtMonth == 2)
+			{
+				var isleap = (dtYear % 4 == 0 && (dtYear % 100 != 0 || dtYear % 400 == 0));
+				if (dtDay> 29 || (dtDay ==29 && !isleap))
+					return false;
+			}
+			return true;
+		}
+		
+		function days_between(date1, date2) {
+			// Time difference diveded by the number of milliseconds in one day
+			var date_1 = new Date(date1);
+			var date_2 = new Date(date2); 
+			return Math.round( (date_2.getTime() - date_1.getTime()) / (1000 * 60 * 60 * 24))
+
+		}
+		
 		function addzero(number){
 			if(number<10){
 				return '0' + number;
@@ -126,8 +168,8 @@
 			}
 		}*/
 		
-		function validate(longitud, latitud, zoom){
-			if( longitud >= -180 && longitud <= 180 && latitud >= -90 && latitud <= 90 && zoom >= 0 && zoom <= 8)
+		function validate(fromDate, toDate, longitud, latitud, zoom){		
+			if(isDate(fromDate) && isDate(toDate) && days_between(fromDate, toDate) >= 0 && longitud >= -180 && longitud <= 180 && latitud >= -90 && latitud <= 90 && zoom >= 0 && zoom <= 8)
 				return true;
 			else
 				return false;
@@ -165,8 +207,8 @@
 				}
 			}
 						
-			if(validate(query_string.lon, query_string.lat, query_string.z)){
-				getTiles(query_string.lon, query_string.lat, query_string.z);
+			if(validate(query_string.from, query_string.to, query_string.lon, query_string.lat, query_string.z)){
+				getTiles(query_string.from, days_between(query_string.from, query_string.to), query_string.lon, query_string.lat, query_string.z);
 			}else{
 				alert('Valores Invalidos')
 			}
