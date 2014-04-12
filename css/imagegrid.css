@@ -61,6 +61,15 @@ ul.grid-nav li {
     top: 82px;
     position: absolute;
 }
+
+.grid-nav-option li a{
+	color: white;
+}
+
+.grid-nav-option li a:hover{
+	color: #DE5E60;
+}
+
 ul.grid-nav li a:hover {
 	background: #7b0;
 }

@@ -34,3 +34,22 @@ Stack trace:
 REQUEST_URI=/earth/index.php?r=video/index
 in /Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php (16)
 in /Applications/XAMPP/xamppfiles/htdocs/earth/index.php (13)
+2014/04/12 09:59:03 [error] [php] Array to string conversion (/Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/helpers/CHtml.php:157)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CBaseController.php(126): require()
+#1 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CBaseController.php(95): VideoController->renderInternal()
+#2 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(869): VideoController->renderFile()
+#3 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(782): VideoController->renderPartial()
+#4 /Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php(31): VideoController->render()
+#5 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/actions/CInlineAction.php(49): VideoController->actionNew()
+#6 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(286): VideoController->runAction()
+#8 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(265): VideoController->runActionWithFilters()
+#9 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CWebApplication.php(282): VideoController->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#12 /Applications/XAMPP/xamppfiles/htdocs/earth/index.php(13): CWebApplication->run()
+REQUEST_URI=/earth/index.php?r=video/new
+in /Applications/XAMPP/xamppfiles/htdocs/earth/protected/views/video/new.php (9)
+in /Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php (31)
+in /Applications/XAMPP/xamppfiles/htdocs/earth/index.php (13)

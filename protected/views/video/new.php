@@ -1,7 +1,27 @@
 
 
+
+<script type="text/javascript">
+	function createVideo(){
+		// Ask to proceed the video. 
+		$.ajax({
+        type: "GET",
+          url: "/earth/index.php?r=video/save",
+          data: ( {} ) ,
+          cache: false,
+          dataType: "json",
+          success: function(){
+          	alert("DOne");
+          }
+        }); 
+
+	}
+
+</script>
+
+
 	<ul class="grid-nav-option">
-		<li><a href="#" class="">Create Video</a></li>
+		<li><a href="#" onClick="createVideo()" >Create Video</a></li>
 	</ul>
 
 	<div class="group-images">

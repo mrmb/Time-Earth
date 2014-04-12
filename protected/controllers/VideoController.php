@@ -30,4 +30,15 @@ class VideoController extends Controller
 // imagegrid
 		$this->render('new');
 	}
+
+	public function actionSave(){
+		
+		// Trying to execute the command line 
+		$data_cmd = exec("ls") ;
+
+
+		echo CJSON::encode(array(
+            'result' => $data_cmd 
+        ));
+	}
 }
