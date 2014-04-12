@@ -44,6 +44,7 @@ class VideoController extends Controller
 	}
 
 	public function actionStoreImage(){
+	
 		$input = 	$_GET['url'];
 		$dir = 		"videos/" . $_GET['dir'];
 		$number = 	$_GET['num'];

@@ -9,7 +9,7 @@
 		var base_lon = 640;
 		var base_lat = 320;
 		
-		var map_frames = 10;
+		var map_frames = 2;
 		var interval_time = 1000;
 		var map_images = new Array();
 		function getTiles(lon, lat, zoom){
@@ -41,15 +41,59 @@
 			
 			//alert(zoom+"/"+tile_row+"/"+tile_col);
 			
+			var folder_images = getDateFormat(show_date) + "_" + map_frames + " " + zoom + "_" + tile_row + "_" + tile_col;
+			
 			for (i = 0; i < map_frames; i++) {
-				map_images[i] = new Image();
-				map_images[i].src = "http://map1.vis.earthdata.nasa.gov/wmts-geo/MODIS_Terra_CorrectedReflectance_TrueColor/default/"+getDateFormat(show_date)+"/EPSG4326_250m/"+zoom+"/"+tile_row+"/"+tile_col+".jpg";
-				
-				//Next day
+				//Next day (for some reason it loads the deay before so we hafta start loading a +1
 				show_date.setDate(show_date.getDate() + 1);
+				
+				//map_images[i] = new Image();
+				map_images[i] = "http://map1.vis.earthdata.nasa.gov/wmts-geo/MODIS_Terra_CorrectedReflectance_TrueColor/default/" + getDateFormat(show_date) + "/EPSG4326_250m/" + zoom + "/" + tile_row + "/" + tile_col + ".jpg";
+				//$('#img_preload').append($('<img />').attr('src', map_images[i].src));
+				
+				download(folder_images, map_images[i], i);
 			}
 			
-			change_interval = setInterval( "imgChange()", interval_time);
+			/*generateGif(folder_images);
+			
+			//change_interval = setInterval( "imgChange()", interval_time);
+			image_gif_path = "videos/" + folder_images + "/" + folder_images + ".gif";
+			
+			$("#my_rand_image").attr("src", image_gif_path);*/
+		}
+		
+		function download(folder, link, id){
+			$.ajax({
+				  type: "GET",
+				  url: "/earth/index.php?r=video/StoreImage",
+				  data: ( {
+					'url': link,
+					'dir': folder,
+					'num': id
+				  } ) ,
+				  cache: false,
+				  dataType: "json",
+				  success: function(){
+					alert("DOne");
+				  } 
+				});
+		}
+		
+		function generateGif(folder){
+			/*$.ajax({
+				  type: "GET",
+				  url: "/earth/index.php?r=video/StoreImage",
+				  data: ( {
+					'url': folder,
+					'dir': link,
+					'num': id
+				  } ) ,
+				  cache: false,
+				  dataType: "json",
+				  success: function(){
+					alert("DOne");
+				  } 
+				});*/
 		}
 		
 		function getDateFormat(the_date){
@@ -64,7 +108,7 @@
 			}
 		}
 
-		var step_count = 0;
+		/*var step_count = 0;
 		function imgChange(){ 
 			try{
 				if(step_count>=map_frames){
@@ -82,7 +126,7 @@
 				clearInterval(change_interval);
 				alert("Error description: " + step_count + " - " + err.message);
 			}
-		}
+		}*/
 		
 		function validate(longitud, latitud, zoom){
 			if( longitud >= -180 && longitud <= 180 && latitud >= -90 && latitud <= 90 && zoom >= 0 && zoom <= 8)
@@ -134,7 +178,9 @@
 	</script>
 </head> 
 <body>
+
 <!-- TEMP IMAGE MEANWHILE -->
-<img id="my_rand_image" src="" width="450" />
+
+<img id="my_rand_image" src="" width="150" />
 </body>
 </html>
