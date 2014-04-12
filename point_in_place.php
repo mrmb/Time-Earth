@@ -94,23 +94,6 @@
 				});
 		}
 		
-		function generateGif(folder){
-			/*$.ajax({
-				  type: "GET",
-				  url: "/earth/index.php?r=video/StoreImage",
-				  data: ( {
-					'url': folder,
-					'dir': link,
-					'num': id
-				  } ) ,
-				  cache: false,
-				  dataType: "json",
-				  success: function(){
-					alert("DOne");
-				  } 
-				});*/
-		}
-		
 		function getDateFormat(the_date){
 			return the_date.getFullYear()+"-"+addzero(the_date.getMonth()+1)+"-"+addzero(the_date.getDate());
 		}
