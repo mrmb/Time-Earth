@@ -59,6 +59,11 @@ class VideoController extends Controller
 	}
 
 
+	public function actionGenerateVideo(){
+		$dir = 		"videos/" . $_GET['dir'];
+		$data = exec("ffmpeg -i " . $dir . "i%d.jpg " . $dir . "t2.gif");
+	}
+
 
 
 
