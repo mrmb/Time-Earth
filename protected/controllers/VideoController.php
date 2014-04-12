@@ -45,24 +45,18 @@ class VideoController extends Controller
 
 	public function actionStoreImage(){
 		$input = 	$_GET['url'];
-		$dir = 		$_GET['dir'];
+		$dir = 		"videos/" . $_GET['dir'];
 		$number = 	$_GET['num'];
-
-		$output = 'videos/'. $dir .'/i' . $number . '.jpg';
-		printf( $output );
-
+		
+		if( ! file_exists($dir) ){
+			mkdir($dir);  
+		}
+		$output = $dir .'/i' . $number . '.jpg';
 		if( ! file_exists($output) ){
 			file_put_contents($output, file_get_contents($input));	
 		}
 	}
 
-	public function actionMkDir(){
-		$dir  = "videos/" . $_GET['dir'];
-		
-		if( ! file_exists($dir) ){
-			mkdir($dir);  
-		}
-	}
 
 
 
