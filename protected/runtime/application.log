@@ -53,3 +53,27 @@ REQUEST_URI=/earth/index.php?r=video/new
 in /Applications/XAMPP/xamppfiles/htdocs/earth/protected/views/video/new.php (9)
 in /Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php (31)
 in /Applications/XAMPP/xamppfiles/htdocs/earth/index.php (13)
+2014/04/12 20:58:32 [error] [php] mkdir(): No such file or directory (/Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php:52)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(286): VideoController->runAction()
+#2 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(265): VideoController->runActionWithFilters()
+#3 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CWebApplication.php(282): VideoController->run()
+#4 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /Applications/XAMPP/xamppfiles/htdocs/earth/index.php(13): CWebApplication->run()
+REQUEST_URI=/earth/index.php?r=video/storeimage&url=http%3A%2F%2Fwww.menucool.com%2Fslider%2Fprod%2Fimage-slider-5.jpg&dir=video%2Fcase1&_=1397329110457
+in /Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php (52)
+in /Applications/XAMPP/xamppfiles/htdocs/earth/index.php (13)
+2014/04/12 21:01:32 [error] [php] mkdir(): No such file or directory (/Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php:54)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(286): VideoController->runAction()
+#2 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CController.php(265): VideoController->runActionWithFilters()
+#3 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CWebApplication.php(282): VideoController->run()
+#4 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /Applications/XAMPP/xamppfiles/htdocs/earth/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /Applications/XAMPP/xamppfiles/htdocs/earth/index.php(13): CWebApplication->run()
+REQUEST_URI=/earth/index.php?r=video/storeimage&url=http%3A%2F%2Fwww.menucool.com%2Fslider%2Fprod%2Fimage-slider-5.jpg&dir=videos%2Fcase1&_=1397329198282
+in /Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php (54)
+in /Applications/XAMPP/xamppfiles/htdocs/earth/index.php (13)

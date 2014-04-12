@@ -6,6 +6,14 @@
   		height: 90% ;
   		width: 100% ;
   	 }
+
+     .prev_videos{
+        color:black;
+     }
+
+     a:hover {
+        color: red;
+     }
 </style>
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -29,6 +37,7 @@
       strokeWeight: 3,
       fillColor: '#5555FF'
     });
+    
     poly.setMap(map);
     poly.setPaths(new google.maps.MVCArray([path]));
 
@@ -41,17 +50,34 @@
   function showInfo(event){
   	var vertices = this.getPath();
 
-  var contentString = '<b><?php echo CHtml::link("Press for a new video",array("video/new")); ?> </b>' ;
+  var contentString = '<b>New Video</b> </br>' ;
   	// Iterate over the vertices.
   	for (var i =0; i < vertices.getLength(); i++) {
     	var xy = vertices.getAt(i);
     	contentString += '<br>' + 'Coordinate ' + i + ':  ' + xy.lat() + ',' + xy.lng();
   	}
 
+    <?php
+      $variablephp = "<script> document.write(markers) </script>";
+    ?>
+
+     contentString += "Fecha Inicial : <input type='date' id='date_s'> </br>"
+     contentString += "Fecha Final   : <input type='date' id='date_e' style='left:2%; position:relative;' > </br>"
+     contentString += '<div onClick="newVideo()" > Preview Video </div>'
+     contentString += '<?php echo CHtml::link("Preview Video",array("video/new" , array("temp"=>"hola")) , array("class" => "prev_videos")); ?>'
+     
+
   	// Replace the info window's content and position.
   	infoWindow.setContent(contentString);
-	infoWindow.setPosition(event.latLng);
+	  infoWindow.setPosition(event.latLng);
   	infoWindow.open(map);
+  }
+
+  function newVideo(){
+      date_s = $("#date_s").val();
+      date_e = $("#date_e").val();
+
+     window.location = "index.php?r=video/new&id=" + date_s + "&ed=" + date_e  ;
   }
 
   function addPoint(event) {
@@ -70,14 +96,14 @@
     google.maps.event.addListener(marker, 'click', function() {
       marker.setMap(null);
       for (var i = 0, I = markers.length; i < I && markers[i] != marker; ++i);
-      markers.splice(i, 1);
-      path.removeAt(i);
+        markers.splice(i, 1);
+        path.removeAt(i);
       }
     );
 
     google.maps.event.addListener(marker, 'dragend', function() {
       for (var i = 0, I = markers.length; i < I && markers[i] != marker; ++i);
-      path.setAt(i, marker.getPosition());
+        path.setAt(i, marker.getPosition());
       }
     );
   }

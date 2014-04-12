@@ -1,19 +1,23 @@
 
-
-
 <script type="text/javascript">
 	function createVideo(){
-		// Ask to proceed the video. 
 		$.ajax({
-        type: "GET",
-          url: "/earth/index.php?r=video/save",
-          data: ( {} ) ,
+          type: "GET",
+          url: "/earth/index.php?r=video/StoreImage",
+          data: ( {
+          	'url':'http://www.menucool.com/slider/prod/image-slider-5.jpg',
+          	'dir':'case3',
+          	'num': '3'
+          } ) ,
           cache: false,
           dataType: "json",
           success: function(){
           	alert("DOne");
-          }
+          } 
         }); 
+
+
+
 
 	}
 
