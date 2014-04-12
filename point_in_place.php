@@ -57,9 +57,9 @@
 			generateGif(folder_images);
 			
 			//change_interval = setInterval( "imgChange()", interval_time);
-			/*image_gif_path = "videos/" + folder_images + "/" + folder_images + ".gif";
+			image_gif_path = "videos/" + folder_images + "/" + folder_images + ".gif";
 			
-			$("#my_rand_image").attr("src", image_gif_path);*/
+			$("#my_rand_image").attr("src", image_gif_path);
 		}
 		
 		function generateGif(folder){
