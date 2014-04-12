@@ -101,6 +101,7 @@
 		
 		function isDate(txtDate)
 		{
+
 			var currVal = txtDate;
 			if(currVal == '')
 				return false;
@@ -116,7 +117,7 @@
 			dtMonth = dtArray[1];
 			dtDay= dtArray[3];
 			dtYear = dtArray[5];
-
+			// alert(dtMonth + "/" + dtDay + "/" + dtYear);
 			if (dtMonth < 1 || dtMonth > 12)
 				return false;
 			else if (dtDay < 1 || dtDay> 31)
@@ -134,9 +135,11 @@
 		
 		function days_between(date1, date2) {
 			// Time difference diveded by the number of milliseconds in one day
+			
 			var date_1 = new Date(date1);
 			var date_2 = new Date(date2); 
-			return Math.round( (date_2.getTime() - date_1.getTime()) / (1000 * 60 * 60 * 24))
+			
+			return Math.round( (date_2.getTime() - date_1.getTime()) / (1000 * 60 * 60 * 24));
 
 		}
 		
@@ -207,8 +210,9 @@
 				}
 			}
 						
-			if(validate(query_string.from, query_string.to, query_string.lon, query_string.lat, query_string.z)){
-				getTiles(query_string.from, days_between(query_string.from, query_string.to), query_string.lon, query_string.lat, query_string.z);
+						
+			if(validate(query_string.from.split("-").join("/"), query_string.to.split("-").join("/"), query_string.lon, query_string.lat, query_string.z)){
+				getTiles(query_string.from.split("-").join("/"), days_between(query_string.from.split("-").join("/"), query_string.to.split("-").join("/")), query_string.lon, query_string.lat, query_string.z);
 			}else{
 				alert('Valores Invalidos')
 			}
