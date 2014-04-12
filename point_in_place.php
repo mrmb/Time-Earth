@@ -41,7 +41,7 @@
 			
 			//alert(zoom+"/"+tile_row+"/"+tile_col);
 			
-			var folder_images = getDateFormat(show_date) + "_" + map_frames + " " + zoom + "_" + tile_row + "_" + tile_col;
+			var folder_images = getDateFormat(show_date) + "_" + map_frames + "_" + zoom + "_" + tile_row + "_" + tile_col;
 			
 			for (i = 0; i < map_frames; i++) {
 				//Next day (for some reason it loads the deay before so we hafta start loading a +1
@@ -54,18 +54,33 @@
 				download(folder_images, map_images[i], i);
 			}
 			
-			/*generateGif(folder_images);
+			generateGif(folder_images);
 			
 			//change_interval = setInterval( "imgChange()", interval_time);
-			image_gif_path = "videos/" + folder_images + "/" + folder_images + ".gif";
+			/*image_gif_path = "videos/" + folder_images + "/" + folder_images + ".gif";
 			
 			$("#my_rand_image").attr("src", image_gif_path);*/
+		}
+		
+		function generateGif(folder){
+			$.ajax({
+				  type: "GET",
+				  url: "/index.php?r=video/GenerateVideo",
+				  data: ( {
+					'dir': folder
+				  } ) ,
+				  cache: false,
+				  dataType: "json",
+				  success: function(){
+					alert("DOne");
+				  } 
+				});
 		}
 		
 		function download(folder, link, id){
 			$.ajax({
 				  type: "GET",
-				  url: "/earth/index.php?r=video/StoreImage",
+				  url: "/index.php?r=video/StoreImage",
 				  data: ( {
 					'url': link,
 					'dir': folder,

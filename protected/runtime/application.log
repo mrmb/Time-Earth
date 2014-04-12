@@ -77,3 +77,15 @@ Stack trace:
 REQUEST_URI=/earth/index.php?r=video/storeimage&url=http%3A%2F%2Fwww.menucool.com%2Fslider%2Fprod%2Fimage-slider-5.jpg&dir=videos%2Fcase1&_=1397329198282
 in /Applications/XAMPP/xamppfiles/htdocs/earth/protected/controllers/VideoController.php (54)
 in /Applications/XAMPP/xamppfiles/htdocs/earth/index.php (13)
+2014/04/12 21:39:25 [error] [php] mkdir(): File exists (C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php:53)
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(286): VideoController->runAction()
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(265): VideoController->runActionWithFilters()
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): VideoController->run()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=video/StoreImage&url=http%3A%2F%2Fmap1.vis.earthdata.nasa.gov%2Fwmts-geo%2FMODIS_Terra_CorrectedReflectance_TrueColor%2Fdefault%2F2014-01-01%2FEPSG4326_250m%2F2%2F1%2F1.jpg&dir=2013-12-31_2_2_1_1&num=0&_=1397331564935
+in C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php (53)
+in C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php (13)
