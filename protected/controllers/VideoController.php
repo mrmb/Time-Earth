@@ -60,8 +60,18 @@ class VideoController extends Controller
 
 
 	public function actionGenerateVideo(){
-		$dir = 		"videos/" . $_GET['dir'];
-		$data = exec("ffmpeg -i " . $dir . "i%d.jpg " . $dir . "t2.gif");
+		$dir = 	'videos/' . $_GET['dir'] . '/';
+		$command = 'C:/Users/cavpollo/Documents/GitHub/Time-Earth/FFMPEG/bin/ffmpeg.exe -i ' . $dir . 'i%d.jpg ' . $dir . $_GET['dir'] . '.gif';
+		//$data = exec($instr, $output, $return);
+		//shell_exec("cd FFMPEG/bin 2>&1" );
+		$result = shell_exec( $command." 2>&1" );
+		//printf($data);
+		
+		/*echo CJSON::encode(array(
+            'result' => $result
+        ));
+		
+		exit;*/
 	}
 
 
