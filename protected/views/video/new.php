@@ -174,7 +174,7 @@
 				array_info_image = array_info[4].split("_");
 
 				html_images += '<li>';
-				html_images += '<input type="checkbox" style="position:relative; top:-88px; left:-6px;" checked>';
+				html_images += '<input type="checkbox" style="position:relative; top:-88px; left:-6px; height: 20px; width: 19px;" checked>';
 				html_images += '<img src="' + url_array[i] + '" />';
 				html_images += '<h3 style="color:black">' + array_info_image[0] + " " + array_info_image[1] + '</h3>';
 				html_images += '<p> Satelite ' + array_info_image[0] + ',' + array_info_image[1] + '</br> Date = ' + array_info[6] + 
