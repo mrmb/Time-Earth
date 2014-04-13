@@ -43,6 +43,20 @@ class VideoController extends Controller
         ));
 	}
 
+	public function padZeros($value){
+		$r = $value;
+		
+		if($value < 10){
+			$r = '00'.$r;
+		}else{
+			if($value < 100){
+				$r = '0'.$r;
+			}
+		}
+
+		return $r;
+	}
+	
 	public function actionStoreImage(){
 	
 		$input = 	$_GET['url'];
@@ -52,27 +66,33 @@ class VideoController extends Controller
 		if( ! file_exists($dir) ){
 			mkdir($dir);  
 		}
-		$output = $dir .'/i' . $number . '.jpg';
+		
+		$id = $this->padZeros($number);
+		
+		$output = $dir .'/i' . $id . '.jpg';
 		if( ! file_exists($output) ){
 			file_put_contents($output, file_get_contents($input));	
 		}
+		
+		/*echo CJSON::encode(array(
+            'result' => $id
+        ));*/
 	}
-
 
 	public function actionGenerateVideo(){
 		$dir = 	'videos/' . $_GET['dir'] . '/';
-		$command = 'C:/Users/cavpollo/Documents/GitHub/Time-Earth/FFMPEG/bin/ffmpeg.exe -i ' . $dir . 'i%d.jpg  -r 2 ' . $dir . $_GET['dir'] . '.gif';
-		//$data = exec($instr, $output, $return);
-		//shell_exec("cd FFMPEG/bin 2>&1" );
-		$result = shell_exec( $command." 2>&1" );
-		//printf($data);
+		
+		if( ! file_exists($dir . $_GET['dir'] . '.gif') ){
+			$command = 'C:/Users/cavpollo/Documents/GitHub/Time-Earth/FFMPEG/bin/ffmpeg.exe -r 2 -i ' . $dir . 'i%03d.jpg  -r 2 ' . $dir . $_GET['dir'] . '.gif';
+			//$data = exec($instr, $output, $return);
+			//shell_exec("cd FFMPEG/bin 2>&1" );
+			$result = shell_exec( $command." 2>&1" );
+			//printf($data);
+		}
 		
 		echo CJSON::encode(array(
             'result' => $result
         ));
 	}
-
-
-
 
 }
