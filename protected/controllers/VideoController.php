@@ -81,6 +81,7 @@ class VideoController extends Controller
 
 	public function actionGenerateVideo(){
 		$dir = 	'videos/' . $_GET['dir'] . '/';
+		$result = null ;
 		
 		if( ! file_exists($dir . $_GET['dir'] . '.gif') ){
 			$command = 'C:/Users/cavpollo/Documents/GitHub/Time-Earth/FFMPEG/bin/ffmpeg.exe -r 2 -i ' . $dir . 'i%03d.jpg  -r 2 ' . $dir . $_GET['dir'] . '.gif';
@@ -91,7 +92,7 @@ class VideoController extends Controller
 		}
 		
 		echo CJSON::encode(array(
-            'result' => $result
+            'result' => $result 
         ));
 	}
 
