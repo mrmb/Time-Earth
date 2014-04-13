@@ -111,3 +111,25 @@ Stack trace:
 REQUEST_URI=/index.php?r=video/GenerateVideo&dir=2014-01-25_39_3_2_2&_=1397355833901
 in C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php (95)
 in C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php (13)
+2014/04/13 05:21:05 [error] [php] Undefined variable: result (C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php:95)
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(286): VideoController->runAction()
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(265): VideoController->runActionWithFilters()
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): VideoController->run()
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=video/GenerateVideo&dir=2013-03-20_5_7_33_39&_=1397359265343
+in C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php (95)
+in C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php (13)
+2014/04/13 05:21:36 [error] [php] Undefined variable: result (C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php:95)
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(286): VideoController->runAction()
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(265): VideoController->runActionWithFilters()
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): VideoController->run()
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=video/GenerateVideo&dir=2013-03-20_5_7_33_39&_=1397359265343
+in C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php (95)
+in C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php (13)
