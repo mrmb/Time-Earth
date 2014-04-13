@@ -21,6 +21,13 @@
 	}
 
 	$(function() {
+
+
+
+		// options_values
+
+
+
 		var change_interval;
 		//var show_date = new Date('2014-01-01');
 		var base_lon = 640;
@@ -164,16 +171,30 @@
 
 
 		for(var i = 0 ; i < url_array.length ; i++ ){
-			console.log(url_array[i]);
+			a = url_array[i] ;
+			array_info = a.split("/") ;
+			array_info_image = array_info[4].split("_");
+
 			html_images += '<li>';
-			html_images += '<input type="checkbox" style="position:relative; top:-10px;">';
+			html_images += '<input type="checkbox" style="position:relative; top:-88px; left:-6px;" checked>';
 			html_images += '<img src="' + url_array[i] + '" />';
-			html_images += '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>';
+			html_images += '<h3 style="color:black">' + array_info_image[0] + " " + array_info_image[1] + '</h3>';
+			html_images += '<p> Satelite ' + array_info_image[0] + ',' + array_info_image[1] + '</br> Date = ' + array_info[6] + 
+			'</br> Effect = ' + array_info_image[2] + ' ' + array_info_image[3] + '. </p>';
 			html_images += "</li>";
 		}
 
 		console.log(html_images);
 		$("#images_grid").html(html_images);
+
+
+
+
+		$('#options_values').change(function () {
+			alert("SOmething has changed with value " + $(this).val() );
+		});
+
+
 	});
 
 	
@@ -185,8 +206,13 @@
 		<li><a href="#" onClick="createVideo()" >Create Video</a></li>
 	</ul>
 
-	<div class="group-images">
+	<select id="options_values" class="selectpicker" data-size="auto" style="position:relative; left: 10%; position: relative; top: 3%;">
+		<option value=1>Mustard</option>
+		<option value=2>Ketchup</option>
+		<option value=3>Relish</option>
+	</select>
 
+	<div class="group-images">
 		<div id="four-columns" class="grid-container2">
 			<ul class="rig columns-4">
 				<div id="images_grid"></div>
