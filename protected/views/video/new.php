@@ -16,7 +16,7 @@
 			dataType: "json",
 			success: function(){
 				//$("#my_rand_image").attr("src", "videos/" + folder + "/" + folder + ".gif");
-				window.location = "index.php?r=video/social&name=" +  folder + "&Title=" + title;
+				window.location = "index.php?r=video/social&name=" +  folder + "&title=" + title + "&format=" + format;
 			 } 
 		});
 	}

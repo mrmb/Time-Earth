@@ -319,6 +319,7 @@ Stack trace:
 REQUEST_URI=/index.php?r=video/StoreImage&url=http%3A%2F%2Fmap1.vis.earthdata.nasa.gov%2Fwmts-geo%2FMODIS_Terra_SurfaceReflectance_Bands143%2Fdefault%2F2013-11-03%2FEPSG4326_500m%2F3%2F0%2F2.jpg&dir=1397402732841&num=2&format=jpg&_=1397402688421
 in /Applications/XAMPP/xamppfiles/htdocs/protected/controllers/VideoController.php (73)
 in /Applications/XAMPP/xamppfiles/htdocs/index.php (13)
+<<<<<<< HEAD
 2014/04/13 18:43:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index two images".' in /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php:483
 Stack trace:
 #0 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(270): CController->missingAction('index two image...')
@@ -459,3 +460,129 @@ Stack trace:
 REQUEST_URI=/index.php?r=video/StoreImage&url=http%3A%2F%2Fmap1.vis.earthdata.nasa.gov%2Fwmts-geo%2FMODIS_Terra_CorrectedReflectance_TrueColor%2Fdefault%2F2012-10-21%2FEPSG4326_250m%2F2%2F0%2F0.jpg&dir=1397410571625&num=0&format=jpg&_=1397410564320
 in /Applications/XAMPP/xamppfiles/htdocs/protected/controllers/VideoController.php (76)
 in /Applications/XAMPP/xamppfiles/htdocs/index.php (13)
+=======
+2014/04/13 19:13:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "show".' in C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(270): CController->missingAction('show')
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): CController->run('show')
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('video/show')
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=video/show
+---
+2014/04/13 19:14:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "show".' in C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(270): CController->missingAction('show')
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): CController->run('show')
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('video/show')
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=video/show
+---
+2014/04/13 19:14:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "show".' in C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(270): CController->missingAction('show')
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): CController->run('show')
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('video/show')
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=video/show
+---
+2014/04/13 19:15:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "show".' in C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(270): CController->missingAction('show')
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): CController->run('show')
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('video/show')
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=video/show
+---
+2014/04/13 19:15:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "show".' in C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(270): CController->missingAction('show')
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): CController->run('show')
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('video/show')
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=video/show
+---
+2014/04/13 19:15:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "show".' in C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(270): CController->missingAction('show')
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): CController->run('show')
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('video/show')
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=video/show
+---
+2014/04/13 19:17:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "show".' in C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(270): CController->missingAction('show')
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): CController->run('show')
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('video/show')
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=video/show
+---
+2014/04/13 19:17:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "Show".' in C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(270): CController->missingAction('Show')
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): CController->run('Show')
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('video/Show')
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=video/Show
+---
+2014/04/13 19:24:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "AnlyzeVideo".' in C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(270): CController->missingAction('AnlyzeVideo')
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): CController->run('AnlyzeVideo')
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('video/AnlyzeVid...')
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=video/AnlyzeVideo&dir=1397409806555&format=jpg&_=1397409857362
+HTTP_REFERER=http://localhost/index.php?r=video/social&name=1397409806555&title=MODIS%20Terra%20CorrectedReflectance%20TrueColor&format=jpg
+---
+2014/04/13 19:25:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "AnlyzeVideo".' in C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(270): CController->missingAction('AnlyzeVideo')
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): CController->run('AnlyzeVideo')
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('video/AnlyzeVid...')
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=video/AnlyzeVideo&dir=1397409806555&format=jpg&_=1397409904308
+HTTP_REFERER=http://localhost/index.php?r=video/social&name=1397409806555&title=MODIS%20Terra%20CorrectedReflectance%20TrueColor&format=jpg
+---
+2014/04/13 19:29:31 [error] [php] Undefined variable: command (C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php:126)
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(286): VideoController->runAction()
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(265): VideoController->runActionWithFilters()
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): VideoController->run()
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=video/AnalyzeVideo&dir=1397409806555&format=jpg&_=1397410168765
+in C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php (126)
+in C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php (13)
+2014/04/13 19:29:37 [error] [php] Undefined variable: command (C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php:126)
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(286): VideoController->runAction()
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(265): VideoController->runActionWithFilters()
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): VideoController->run()
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=video/AnalyzeVideo&dir=1397409806555&format=jpg&_=1397410168766
+in C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php (126)
+in C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php (13)
+>>>>>>> 390a780b8636f500d22401be94199d6ec326a472

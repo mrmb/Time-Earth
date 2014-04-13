@@ -111,6 +111,23 @@ class VideoController extends Controller
         ));
 	}
 
+	public function actionAnalyzeVideo(){
+		$dir = 	'videos/' . $_GET['dir'] . '/';
+		$format = 	$_GET['format'];
+		$result = null ;
+		
+		if( ! file_exists($dir . $_GET['dir'] . '.mp4') ){
+			$command = 'C:/Users/cavpollo/Documents/GitHub/Time-Earth/FFMPEG/bin/ffmpeg.exe -r 2 -i ' . $dir . 'i%03d.' . $format . ' -r 2 ' . $dir . $_GET['dir'] . '.mp4';
+			//$data = exec($instr, $output, $return);
+			//shell_exec("cd FFMPEG/bin 2>&1" );
+			$result = shell_exec( $command." 2>&1" );
+			//printf($data);
+		}
+		
+		echo CJSON::encode(array(
+            'result' => $result
+        ));
+	}
 
 	public function actionSocial(){
 
