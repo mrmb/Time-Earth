@@ -15,7 +15,8 @@
 			cache: false,
 			dataType: "json",
 			success: function(){
-				$("#my_rand_image").attr("src", "videos/" + folder + "/" + folder + ".gif");
+				//$("#my_rand_image").attr("src", "videos/" + folder + "/" + folder + ".gif");
+				window.location = "index.php?r=video/social&name=" +  folder ;
 			 } 
 		});
 	}
@@ -63,8 +64,8 @@
 	function checkDoneLoop(folder, itemNumber, format){
 		checkDone(folder, itemNumber, format);
 		if(checkDoneVar){
-			window.location = "index.php?r=video/social&name=" +  folder ;
-			// generateGif(folder, format );
+			generateGif(folder, format );
+			//window.location = "index.php?r=video/social&name=" +  folder ;
 			clearInterval(myLoop);
 		}else{
 			checkDoneStopper++;
