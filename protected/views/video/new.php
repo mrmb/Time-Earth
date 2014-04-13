@@ -4,7 +4,7 @@
 
 	var url_array = new Array();
 
-	function generateGif(folder, format){
+	function generateGif(folder, format, title){
 		$.ajax({
 			type: "GET",
 			url: "/index.php?r=video/GenerateVideo",
@@ -16,7 +16,7 @@
 			dataType: "json",
 			success: function(){
 				//$("#my_rand_image").attr("src", "videos/" + folder + "/" + folder + ".gif");
-				window.location = "index.php?r=video/social&name=" +  folder ;
+				window.location = "index.php?r=video/social&name=" +  folder + "&Title=" + title;
 			 } 
 		});
 	}
@@ -64,7 +64,7 @@
 	function checkDoneLoop(folder, itemNumber, format){
 		checkDone(folder, itemNumber, format);
 		if(checkDoneVar){
-			generateGif(folder, format );
+			generateGif(folder, format,  items[$("#options_values").val()][0].split("_").join(" "));
 			//window.location = "index.php?r=video/social&name=" +  folder ;
 			clearInterval(myLoop);
 		}else{
