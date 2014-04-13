@@ -64,6 +64,7 @@ class VideoController extends Controller
 		$input = 	$_GET['url'];
 		$dir = 		"videos/" . $_GET['dir'];
 		$number = 	$_GET['num'];
+		$format = 	$_GET['format'];
 		
 		if( ! file_exists($dir) ){
 			mkdir($dir);  
@@ -71,9 +72,12 @@ class VideoController extends Controller
 		
 		$id = $this->padZeros($number);
 		
-		$output = $dir .'/i' . $id . '.jpg';
+		$output = $dir .'/i' . $id . '.' . $format;
 		if( ! file_exists($output) ){
-			file_put_contents($output, file_get_contents($input));	
+			file_put_contents($output, file_get_contents($input));
+			/*if($format == 'png'){
+				$command = 'C:/Users/cavpollo/Documents/GitHub/Time-Earth/FFMPEG/bin/ffmpeg.exe -r 2 -i videos/blank.png -vf \"movie=' . $dir . 'i%03d.' . $format . ' [watermark]; [in][watermark] overlay=0:0 [out]\" -r 2 ' . $dir . $_GET['dir'] . '.gif';
+			}*/
 		}
 		
 		/*echo CJSON::encode(array(
@@ -83,10 +87,11 @@ class VideoController extends Controller
 
 	public function actionGenerateVideo(){
 		$dir = 	'videos/' . $_GET['dir'] . '/';
+		$format = 	$_GET['format'];
 		$result = null ;
 		
 		if( ! file_exists($dir . $_GET['dir'] . '.gif') ){
-			$command = 'C:/Users/cavpollo/Documents/GitHub/Time-Earth/FFMPEG/bin/ffmpeg.exe -r 2 -i ' . $dir . 'i%03d.jpg  -r 2 ' . $dir . $_GET['dir'] . '.gif';
+			$command = 'C:/Users/cavpollo/Documents/GitHub/Time-Earth/FFMPEG/bin/ffmpeg.exe -r 2 -i ' . $dir . 'i%03d.' . $format . ' -pix_fmt rgb24 -r 2 ' . $dir . $_GET['dir'] . '.gif';
 			//$data = exec($instr, $output, $return);
 			//shell_exec("cd FFMPEG/bin 2>&1" );
 			$result = shell_exec( $command." 2>&1" );
@@ -98,4 +103,29 @@ class VideoController extends Controller
         ));
 	}
 
+	public function actionCheckImages(){
+	
+		$dir = 	'videos/' . $_GET['folder'] . '/';
+		$itemN = 		$_GET['itemN'];
+		$format = 		$_GET['format'];
+		$value = true;
+		
+		if( file_exists($dir) ){
+			for($i =0; $i < $itemN; $i++){
+				$id = $this->padZeros($i);
+				if(!file_exists($dir .'/i' . $id . '.' . $format) ){
+					$value = false;
+					break;
+				}
+			}
+		}
+
+		echo CJSON::encode(array(
+			'result' => $value
+		));
+		
+		/*echo CJSON::encode(array(
+            'result' => $id
+        ));*/
+	}
 }

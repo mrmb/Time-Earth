@@ -1,3 +1,5 @@
+<link rel='image_src' href='http://cavpollos.com/Pics/Cortos/Corto0161.png' / >
+
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
 <a class="addthis_button_facebook"></a>

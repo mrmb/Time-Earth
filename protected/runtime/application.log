@@ -133,3 +133,14 @@ Stack trace:
 REQUEST_URI=/index.php?r=video/GenerateVideo&dir=2013-03-20_5_7_33_39&_=1397359265343
 in C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php (95)
 in C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php (13)
+2014/04/13 08:14:52 [error] [php] Undefined index: format (C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php:86)
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(286): VideoController->runAction()
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(265): VideoController->runActionWithFilters()
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): VideoController->run()
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=video/GenerateVideo&dir=1397369691487&_=1397369244835
+in C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php (86)
+in C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php (13)
