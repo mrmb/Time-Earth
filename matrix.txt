@@ -1,8 +1,8 @@
 var items = [
 	['MODIS_Terra_CorrectedReflectance_TrueColor', '250m', 'jpg'],
-	['MODIS_Aqua_CorrectedReflectance_TrueColor', '250m', 'jpeg
-	['MODIS_Terra_CorrectedReflectance_Bands721', '250m', 'jpeg
-	['MODIS_Aqua_CorrectedReflectance_Bands721', '250m', 'jpeg
+	['MODIS_Aqua_CorrectedReflectance_TrueColor', '250m', 'jpg'],
+	['MODIS_Terra_CorrectedReflectance_Bands721', '250m', 'jpg'],
+	['MODIS_Aqua_CorrectedReflectance_Bands721', '250m', 'jpg'],
 	['MODIS_Terra_CorrectedReflectance_Bands367', '250m', 'jpg'],
 	['MODIS_Terra_SurfaceReflectance_Bands143', '500m', 'jpg'],
 	['MODIS_Aqua_SurfaceReflectance_Bands143', '500m', 'jpg'],
