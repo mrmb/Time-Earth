@@ -1,44 +1,35 @@
-
-<script type="text/javascript">
-
-	var url_array = new Array();
-
-	function createVideo(){
-		$.ajax({
-          type: "GET",
-          url: "/earth/index.php?r=video/StoreImage",
-          data: ( {
-          	'url':'http://www.menucool.com/slider/prod/image-slider-5.jpg',
-          	'dir':'case3',
-          	'num': '3'
-          } ) ,
-          cache: false,
-          dataType: "json",
-          success: function(){
-          	alert("DOne");
-          } 
-        }); 
-	}
-
-	$(function() {
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
 		var change_interval;
+		
 		//var show_date = new Date('2014-01-01');
+		
 		var base_lon = 640;
 		var base_lat = 320;
+		
 		var interval_time = 1000;
 		var map_images = new Array();
 		function getTiles(from, frames, lon, lat, zoom){
 			var from_date = new Date(from);
+		
 			var tile_row = 0;
 			var tile_col = 0;
+			
 			var b_col = (base_lon * Math.pow(2, zoom));
 			var b_lat = (base_lat * Math.pow(2, zoom));
+			
 			//alert("MX:"+b_col+" - MY:"+b_lat);
+			
 			var m_col = b_col/360;
 			var m_lat = b_lat/180;
+			
 			var image_x = (lon * m_col) + (b_col/2);
 			var image_y = -(lat * m_lat) + (b_lat/2);
+			
 			//alert("X:"+image_x+" - Y:"+image_y);
+			
 			while (image_x > 512){
 				image_x = image_x - 512;
 				tile_col = tile_col + 1;
@@ -49,14 +40,60 @@
 				tile_row = tile_row + 1;
 			}
 			
+			//alert(zoom+"/"+tile_row+"/"+tile_col);
+			
+			var folder_images = getDateFormat(from_date) + "_" + frames + "_" + zoom + "_" + tile_row + "_" + tile_col;
+			
 			for(i = 0; i <= frames; i++) {
+				//Next day (for some reason it loads the deay before so we hafta start loading a +1
 				from_date.setDate(from_date.getDate() + 1);
+				
+				//map_images[i] = new Image();
 				map_images[i] = "http://map1.vis.earthdata.nasa.gov/wmts-geo/MODIS_Terra_CorrectedReflectance_TrueColor/default/" + getDateFormat(from_date) + "/EPSG4326_250m/" + zoom + "/" + tile_row + "/" + tile_col + ".jpg";
+				//$('#img_preload').append($('<img />').attr('src', map_images[i].src));
+				
+				download(folder_images, map_images[i], i);
 			}
 			
-			return map_images;
+			generateGif(folder_images);
+			
+			//change_interval = setInterval( "imgChange()", interval_time);
+			/*image_gif_path = "videos/" + folder_images + "/" + folder_images + ".gif";
+			
+			$("#my_rand_image").attr("src", image_gif_path);*/
 		}
 		
+		function generateGif(folder){
+			$.ajax({
+				type: "GET",
+				url: "/index.php?r=video/GenerateVideo",
+				data: ( {
+					'dir': folder
+				} ) ,
+				cache: false,
+				dataType: "json",
+				success: function(){
+					$("#my_rand_image").attr("src", "videos/" + folder + "/" + folder + ".gif");
+				 } 
+			});
+		}
+		
+		function download(folder, link, id){
+			$.ajax({
+				type: "GET",
+				url: "/index.php?r=video/StoreImage",
+				data: ( {
+					'url': link,
+					'dir': folder,
+					'num': id
+				} ) ,
+				cache: false,
+				dataType: "json",
+				success: function(){
+					//alert("DOne");
+				} 
+			});
+		}
 		
 		function getDateFormat(the_date){
 			return the_date.getFullYear()+"-"+addzero(the_date.getMonth()+1)+"-"+addzero(the_date.getDate());
@@ -113,6 +150,26 @@
 				return number;
 			}
 		}
+
+		/*var step_count = 0;
+		function imgChange(){ 
+			try{
+				if(step_count>=map_frames){
+					step_count =0;
+				}
+				
+				//Set new image
+				$("#my_rand_image").attr("src", map_images[step_count].src);
+				
+				step_count=step_count+1;
+				
+				//setInterval(imgChange(), interval_time);
+			}catch(err)
+			{
+				clearInterval(change_interval);
+				alert("Error description: " + step_count + " - " + err.message);
+			}
+		}*/
 		
 		function validate(fromDate, toDate, longitud, latitud, zoom){		
 			if(isDate(fromDate) && isDate(toDate) && days_between(fromDate, toDate) >= 0 && longitud >= -180 && longitud <= 180 && latitud >= -90 && latitud <= 90 && zoom >= 0 && zoom <= 8)
@@ -121,7 +178,16 @@
 				return false;
 		}
 
+		/*function dif_512(number){
+			while( number > 512 ) {
+				number -= 512 ;
+			}
+			return 512 - number ;
+		}*/
+
 		function parseURL(url){
+			//var index = url.indexOf("?");
+			//if( index < 0) return false ;
 			
 			url = url.substring(url.indexOf("?") + 1);
 
@@ -151,26 +217,14 @@
 				alert('Valores Invalidos')
 			}
 		}
-		url_array = parseURL(window.location.search.substring(1));
+		
+		parseURL(window.location.search.substring(1));
+	</script>
+</head> 
+<body>
 
-	});
+<!-- TEMP IMAGE MEANWHILE -->
 
-	
-
-</script>
-
-
-	<ul class="grid-nav-option">
-		<li><a href="#" onClick="createVideo()" >Create Video</a></li>
-	</ul>
-
-	<div class="group-images">
-
-		<div id="four-columns" class="grid-container2">
-			<ul class="rig columns-4">
-				<div id="images_grid"></div>
-			</ul>
-		</div>
-		<!--/#four-columns-->
-
-	</div>	
+<img id="my_rand_image" src="" />
+</body>
+</html>

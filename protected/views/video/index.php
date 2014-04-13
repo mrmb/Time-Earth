@@ -49,22 +49,23 @@
 
   function showInfo(event){
   	var vertices = this.getPath();
-
-  var contentString = '<b>New Video</b> </br>' ;
+    var lat = 0.00, lon = 0.00 ;
+    var contentString = '<b>New Video</b> </br>' ;
   	// Iterate over the vertices.
-  	for (var i =0; i < vertices.getLength(); i++) {
-    	var xy = vertices.getAt(i);
-    	contentString += '<br>' + 'Coordinate ' + i + ':  ' + xy.lat() + ',' + xy.lng();
-  	}
+  	// for (var i =0; i < vertices.getLength(); i++) {
+   //  	var xy = vertices.getAt(i);
+   //  	contentString += '<br>' + 'Coordinate ' + i + ':  ' + xy.lat() + ',' + xy.lng();
+   //    lat = xy.lat() ;
+   //    lon = xy.lng() ;
+  	// }
 
-    <?php
-      $variablephp = "<script> document.write(markers) </script>";
-    ?>
+     contentString += "Fecha Inicial : <input type='date' id='date_s'> </br>" ;
+     contentString += "Fecha Final   : <input type='date' id='date_e' style='left:2%; position:relative;' > </br>";
+     contentString += "Zoom          : <input type='number' id='zoom' style='left:13%; position:relative;' > </br>";
 
-     contentString += "Fecha Inicial : <input type='date' id='date_s'> </br>"
-     contentString += "Fecha Final   : <input type='date' id='date_e' style='left:2%; position:relative;' > </br>"
-     contentString += '<div onClick="newVideo()" > Preview Video </div>'
-     contentString += '<?php echo CHtml::link("Preview Video",array("video/new" , array("temp"=>"hola")) , array("class" => "prev_videos")); ?>'
+     
+     
+     contentString += '<div onClick=newVideo(' + vertices.getAt(0).lat()  + ',' + vertices.getAt(0).lng()  + ')> Preview Video </div>';
      
 
   	// Replace the info window's content and position.
@@ -73,11 +74,11 @@
   	infoWindow.open(map);
   }
 
-  function newVideo(){
+  function newVideo(lat,lon){
       date_s = $("#date_s").val();
       date_e = $("#date_e").val();
-
-     window.location = "index.php?r=video/new&id=" + date_s + "&ed=" + date_e  ;
+      zoom   = $("#zoom").val();
+      window.location = "index.php?r=video/new&from=" + date_s + "&to=" + date_e + "&lat=" + lat + "&lon=" + lon + "&z=" + zoom ;
   }
 
   function addPoint(event) {
