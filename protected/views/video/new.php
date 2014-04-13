@@ -34,7 +34,7 @@
 		var base_lat = 320;
 		var interval_time = 1000;
 		var map_images = new Array();
-		function getTiles(from, frames, lon, lat, zoom){
+		function getTiles(from, frames, lon, lat, zoom , position){
 			var from_date = new Date(from);
 			var tile_row = 0;
 			var tile_col = 0;
@@ -58,7 +58,7 @@
 			
 			for(i = 0; i <= frames; i++) {
 				from_date.setDate(from_date.getDate() + 1);
-				map_images[i] = "http://map1.vis.earthdata.nasa.gov/wmts-geo/MODIS_Terra_CorrectedReflectance_TrueColor/default/" + getDateFormat(from_date) + "/EPSG4326_250m/" + zoom + "/" + tile_row + "/" + tile_col + ".jpg";
+				map_images[i] = "http://map1.vis.earthdata.nasa.gov/wmts-geo/" + items[position][0] + "/default/" + getDateFormat(from_date) + "/EPSG4326_" + items[position][1] +  "/" + zoom + "/" + tile_row + "/" + tile_col + "." + items[position][2];
 			}
 			
 			return map_images;
@@ -128,7 +128,7 @@
 				return false;
 		}
 
-		function parseURL(url){
+		function parseURL(url , position){
 			
 			url = url.substring(url.indexOf("?") + 1);
 
@@ -153,7 +153,7 @@
 						
 						
 			if(validate(query_string.from.split("-").join("/"), query_string.to.split("-").join("/"), query_string.lon, query_string.lat, query_string.z)){
-				return getTiles(query_string.from.split("-").join("/"), days_between(query_string.from.split("-").join("/"), query_string.to.split("-").join("/")), query_string.lon, query_string.lat, query_string.z);
+				return getTiles(query_string.from.split("-").join("/"), days_between(query_string.from.split("-").join("/"), query_string.to.split("-").join("/")), query_string.lon, query_string.lat, query_string.z , position);
 			}else{
 				alert('Valores Invalidos');
 				return null;
@@ -161,37 +161,51 @@
 			}
 		}
 		
-		url_array = parseURL(window.location.search.substring(1));
+
+		function pictures(position){
+
+			url_array = parseURL(window.location.search.substring(1) , position);
+			var html_images = ""; 
 
 
+			for(var i = 0 ; i < url_array.length ; i++ ){
+				a = url_array[i] ;
+				array_info = a.split("/") ;
+				array_info_image = array_info[4].split("_");
+
+				html_images += '<li>';
+				html_images += '<input type="checkbox" style="position:relative; top:-88px; left:-6px;" checked>';
+				html_images += '<img src="' + url_array[i] + '" />';
+				html_images += '<h3 style="color:black">' + array_info_image[0] + " " + array_info_image[1] + '</h3>';
+				html_images += '<p> Satelite ' + array_info_image[0] + ',' + array_info_image[1] + '</br> Date = ' + array_info[6] + 
+				'</br> Effect = ' + array_info_image[2] + ' ' + array_info_image[3] + '. </p>';
+				html_images += "</li>";
+			}
+
+			$("#images_grid").html(html_images);
+		}
+
+		
+		
+
+		// Add items to combo
+		var combo_list = '<select id="options_values" class="selectpicker" data-size="auto" style="left: 10%; position: relative; top: 21px; width: auto;">';
+		for(var j = 0 ; j < items.length ; j++){
+			
+			combo_list+= '<option value=' + j + '>' + items[j][0].split("_").join(" ") + '</option>';
+		}
+		combo_list += "</select>";
+		$("#items_combo").html(combo_list);
 
 		// Set images
 
-		var html_images = ""; 
-
-
-		for(var i = 0 ; i < url_array.length ; i++ ){
-			a = url_array[i] ;
-			array_info = a.split("/") ;
-			array_info_image = array_info[4].split("_");
-
-			html_images += '<li>';
-			html_images += '<input type="checkbox" style="position:relative; top:-88px; left:-6px;" checked>';
-			html_images += '<img src="' + url_array[i] + '" />';
-			html_images += '<h3 style="color:black">' + array_info_image[0] + " " + array_info_image[1] + '</h3>';
-			html_images += '<p> Satelite ' + array_info_image[0] + ',' + array_info_image[1] + '</br> Date = ' + array_info[6] + 
-			'</br> Effect = ' + array_info_image[2] + ' ' + array_info_image[3] + '. </p>';
-			html_images += "</li>";
-		}
-
-		console.log(html_images);
-		$("#images_grid").html(html_images);
-
+		
+		pictures(0);
 
 
 
 		$('#options_values').change(function () {
-			alert("SOmething has changed with value " + $(this).val() );
+			pictures( $(this).val() );
 		});
 
 
@@ -206,11 +220,9 @@
 		<li><a href="#" onClick="createVideo()" >Create Video</a></li>
 	</ul>
 
-	<select id="options_values" class="selectpicker" data-size="auto" style="position:relative; left: 10%; position: relative; top: 3%;">
-		<option value=1>Mustard</option>
-		<option value=2>Ketchup</option>
-		<option value=3>Relish</option>
-	</select>
+	
+		<div id="items_combo"></div>
+	
 
 	<div class="group-images">
 		<div id="four-columns" class="grid-container2">
