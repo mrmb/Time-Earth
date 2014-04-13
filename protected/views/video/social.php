@@ -1,7 +1,10 @@
 <html>
 <head>
 <script type="text/javascript">
-	function analyze(folder, format){
+	var checkDoneVar;
+	var myLoop;
+/*	
+	function analyze(folder, count, format){
 		$.ajax({
 			type: "GET",
 			url: "/index.php?r=video/AnalyzeVideo",
@@ -12,9 +15,11 @@
 			cache: false,
 			dataType: "json",
 			success: function(data){
-				//$("#my_rand_image").attr("src", "videos/" + folder + "/" + folder + ".gif");
-				//window.location = "index.php?r=video/social&name=" +  folder + "&title=" + title + "&format=" + format;
+				//Video has been done generating, now we must call the script that generates the FIN images
 				alert('DONE: ' + data.result);
+				
+				//And we call the script that waits for the images to be ready to generate ANOTHER video... sigh...
+				myLoop = setInterval(function(){checkDoneLoop(folder, count, format);}, 5000);
 			 } 
 		});
 	}
@@ -42,9 +47,61 @@
 			}
 		}
 		
- 		analyze(query_string.name, query_string.format);
+ 		analyze(query_string.name, query_string.count, query_string.format);
 	}
 
+	function checkDoneLoop(folder, itemNumber, format){
+		checkDone(folder, itemNumber, format);
+		if(checkDoneVar){
+			//Video Images done being created.
+			//Now it must make another video
+			generateVideo(folder, format);
+			//window.location = "index.php?r=video/social&name=" +  folder ;
+			clearInterval(myLoop);
+		}else{
+			checkDoneStopper++;
+			if(checkDoneStopper==itemNumber){
+				clearInterval(myLoop);
+				$("#floatingBarsG").hide();
+			}
+		}
+	}
+	
+	function checkDone(folder, itemN, format){
+		$.ajax({
+			type: "GET",
+			url: "/index.php?r=video/CheckVideoImages",
+			data: ( {
+				'folder': folder,
+				'itemN': itemN,
+				'format': format
+			} ) ,
+			cache: false,
+			dataType: "json",
+			success: function(data){
+				checkDoneVar = data.result;
+			} 
+		});
+	}
+	
+	function generateVideo(folder, format){
+		$.ajax({
+			type: "GET",
+			url: "/index.php?r=video/GenerateFinVideo",
+			data: ( {
+				'dir': folder,
+				'format': format
+			} ) ,
+			cache: false,
+			dataType: "json",
+			success: function(data){
+				//Done generating the FIN video, now redirect to where the videos are shown
+				//window.location = "index.php?r=video/social&name=" +  folder + "&title=" + title + "&format=" + format;
+				alert('DONE GENERATING: ' + data.result);
+			 } 
+		});
+	}
+	*/
 	function parseURL(url){
 			
 		
@@ -73,8 +130,6 @@
 		image_string = '<img src="' + '<?php Yii::app()->request->baseUrl; ?>' + "/videos/" +query_string.name + '/' +query_string.name + '.gif" >'  ;
 		$("#video").html(image_string);
 		$("#title").html(query_string.title.split('%20').join(' '));
-		
-		//document.write('<link rel=\'image_src\' href=\'http://cavpollos.com/Pics/Cortos/Corto0161.png\' / >'); DA ERROR =(
 	}
 
 	$(function() {
@@ -112,10 +167,10 @@
 <br />
 <div id="video" style="position: relative; top: 10px;"></div>
 <br />
-<ul class="grid-nav-option">
+<!-- <ul class="grid-nav-option">
 	<li><a href="#" onclick="analyzeVideo()">Analize Video</a></li>
 </ul>
-<br />
+<br /> -->
 <!-- Socialize -->
 <div id="social-area" class="page" style="position: relative; top: 0; left:36%">
 	

@@ -61,9 +61,6 @@ class VideoController extends Controller
 	}
 	
 	public function actionStoreImage(){
-	
-
-
 		$input = 	$_GET['url'];
 		$dir = 		"videos/" . $_GET['dir'];
 		$number = 	$_GET['num'];
@@ -108,7 +105,7 @@ class VideoController extends Controller
         ));
 	}
 
-	public function actionAnalyzeVideo(){
+	/*public function actionAnalyzeVideo(){
 		$dir = 	'videos/' . $_GET['dir'] . '/';
 		$format = 	$_GET['format'];
 		$result = null ;
@@ -124,7 +121,7 @@ class VideoController extends Controller
 		echo CJSON::encode(array(
             'result' => $result
         ));
-	}
+	}*/
 
 	public function actionSocial(){
 
@@ -155,9 +152,45 @@ class VideoController extends Controller
 		echo CJSON::encode(array(
 			'result' => $value
 		));
-		
-		/*echo CJSON::encode(array(
-            'result' => $id
-        ));*/
 	}
+	
+	/*public function actionCheckImages(){
+	
+		$dir = 	'videos/' . $_GET['folder'] . '/';
+		$itemN = 		$_GET['itemN'];
+		$format = 		$_GET['format'];
+		$value = true;
+		
+		if( file_exists($dir) ){
+			for($i =0; $i < $itemN; $i++){
+				$id = $this->padZeros($i);
+				if(!file_exists($dir .'/v' . $id . '.' . $format) ){
+					$value = false;
+					break;
+				}
+			}
+		}
+
+		echo CJSON::encode(array(
+			'result' => $value
+		));
+	}
+	
+	public function actionGenerateFinVideo(){
+		$dir = 	'videos/' . $_GET['dir'] . '/';
+		$format = 	$_GET['format'];
+		$result = null ;
+		
+		if( ! file_exists($dir . $_GET['dir'] . 'FIN.mp4') ){
+			$command = 'C:/Users/cavpollo/Documents/GitHub/Time-Earth/FFMPEG/bin/ffmpeg.exe -r 2 -i ' . $dir . 'v%03d.' . $format . ' -r 2 ' . $dir . $_GET['dir'] . 'FIN.mp4';
+			//$data = exec($instr, $output, $return);
+			//shell_exec("cd FFMPEG/bin 2>&1" );
+			$result = shell_exec( $command." 2>&1" );
+			//printf($data);
+		}
+		
+		echo CJSON::encode(array(
+            'result' => $result 
+        ));
+	}*/
 }
