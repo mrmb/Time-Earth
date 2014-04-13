@@ -133,3 +133,43 @@ Stack trace:
 REQUEST_URI=/index.php?r=video/GenerateVideo&dir=2013-03-20_5_7_33_39&_=1397359265343
 in C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php (95)
 in C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php (13)
+2014/04/13 07:54:50 [error] [php] mkdir(): File exists (/Applications/XAMPP/xamppfiles/htdocs/protected/controllers/VideoController.php:69)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(286): VideoController->runAction()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(265): VideoController->runActionWithFilters()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(282): VideoController->run()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /Applications/XAMPP/xamppfiles/htdocs/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=video/StoreImage&url=http%3A%2F%2Fmap1.vis.earthdata.nasa.gov%2Fwmts-geo%2FMODIS_Terra_SurfaceReflectance_Bands121%2Fdefault%2F2012-10-24%2FEPSG4326_250m%2F1%2F0%2F0.jpg&dir=1397368490179&num=2&_=1397368439621
+in /Applications/XAMPP/xamppfiles/htdocs/protected/controllers/VideoController.php (69)
+in /Applications/XAMPP/xamppfiles/htdocs/index.php (13)
+2014/04/13 08:30:42 [error] [php] mkdir(): File exists (/Applications/XAMPP/xamppfiles/htdocs/protected/controllers/VideoController.php:69)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(286): VideoController->runAction()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(265): VideoController->runActionWithFilters()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(282): VideoController->run()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /Applications/XAMPP/xamppfiles/htdocs/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=video/StoreImage&url=http%3A%2F%2Fmap1.vis.earthdata.nasa.gov%2Fwmts-geo%2FMODIS_Terra_CorrectedReflectance_TrueColor%2Fdefault%2F2012-10-26%2FEPSG4326_250m%2F2%2F1%2F1.jpg&dir=1397370642032&num=5&_=1397370638074
+in /Applications/XAMPP/xamppfiles/htdocs/protected/controllers/VideoController.php (69)
+in /Applications/XAMPP/xamppfiles/htdocs/index.php (13)
+2014/04/13 15:54:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "pypmyadmi".' in /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('pypmyadmi')
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Applications/XAMPP/xamppfiles/htdocs/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=pypmyadmi
+---
+2014/04/13 15:54:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "pypmyadmin".' in /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('pypmyadmin')
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Applications/XAMPP/xamppfiles/htdocs/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=pypmyadmin
+---

@@ -54,7 +54,8 @@
  				download( folder , url_array[ array_values[i].value ] , i);
  			}
 
- 			generateGif(folder);
+ 			//generateGif(folder);
+ 			window.location = "index.php?r=video/social&name=" + "im1.jpg";
 
  		} else {
  			alert("Add pictures to create a video.");

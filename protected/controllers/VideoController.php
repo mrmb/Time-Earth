@@ -98,4 +98,13 @@ class VideoController extends Controller
         ));
 	}
 
+	public function actionSocial(){
+
+		$baseUrl = Yii::app()->baseUrl; 
+		$cs = Yii::app()->getClientScript();
+		$cs->registerScriptFile($baseUrl.'/js/main2.js');
+
+		$this->render('social');
+	}
+
 }
