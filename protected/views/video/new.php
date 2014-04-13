@@ -1,23 +1,81 @@
 
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+
+
+
+
 <script type="text/javascript">
 
 	var url_array = new Array();
 
-	function createVideo(){
+	function generateGif(folder){
 		$.ajax({
-          type: "GET",
-          url: "/earth/index.php?r=video/StoreImage",
-          data: ( {
-          	'url':'http://www.menucool.com/slider/prod/image-slider-5.jpg',
-          	'dir':'case3',
-          	'num': '3'
-          } ) ,
-          cache: false,
-          dataType: "json",
-          success: function(){
-          	alert("DOne");
-          } 
-        }); 
+			type: "GET",
+			url: "/index.php?r=video/GenerateVideo",
+			data: ( {
+				'dir': folder
+			} ) ,
+			cache: false,
+			dataType: "json",
+			success: function(){
+				$("#my_rand_image").attr("src", "videos/" + folder + "/" + folder + ".gif");
+			 } 
+		});
+	}
+
+
+	function download(folder, link, id){
+		$.ajax({
+			type: "GET",
+			url: "/index.php?r=video/StoreImage",
+			data: ( {
+				'url': link,
+				'dir': folder,
+				'num': id
+			} ) ,
+			cache: false,
+			dataType: "json",
+			success: function(){
+				//alert("DOne");
+			} 
+		});
+	}
+
+
+	function createVideo(){
+		
+		var array_values = $('input[name="image_checkbox"]:checked') ;
+ 	
+ 		if( array_values.length > 0 ) {
+ 			var d = new Date();
+ 			var folder = d.getTime();
+ 			
+ 			for(var i=0 ; i <  array_values.length ; i++){ 				
+ 				download( folder , url_array[ array_values[i].value ] , i);
+ 			}
+
+ 			generateGif(folder);
+
+ 		} else {
+ 			alert("Add pictures to create a video.");
+ 		}
+
+
+
+		// $.ajax({
+  //         type: "GET",
+  //         url: "/earth/index.php?r=video/StoreImage",
+  //         data: ( {
+  //         	'url':'http://www.menucool.com/slider/prod/image-slider-5.jpg',
+  //         	'dir':'case3',
+  //         	'num': '3'
+  //         } ) ,
+  //         cache: false,
+  //         dataType: "json",
+  //         success: function(){
+  //         	alert("DOne");
+  //         } 
+  //       }); 
 	}
 
 	$(function() {
@@ -174,7 +232,7 @@
 				array_info_image = array_info[4].split("_");
 
 				html_images += '<li>';
-				html_images += '<input type="checkbox" style="position:relative; top:-88px; left:-6px; height: 20px; width: 19px;" checked>';
+				html_images += '<input value="' + i +'"type="checkbox" name="image_checkbox" style="position:static; top:-88px; left:-6px; height: 20px; width: 19px;" checked=true>';
 				html_images += '<img src="' + url_array[i] + '" />';
 				html_images += '<h3 style="color:black">' + array_info_image[0] + " " + array_info_image[1] + '</h3>';
 				html_images += '<p> Satelite ' + array_info_image[0] + ',' + array_info_image[1] + '</br> Date = ' + array_info[6] + 
