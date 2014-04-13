@@ -79,7 +79,9 @@ var items = [
 	['AMSRE_Brightness_Temp_89H_Day', '2km', 'png'],
 	['AMSRE_Brightness_Temp_89H_Night', '2km', 'png'],
 	['AMSRE_Brightness_Temp_89V_Day', '2km', 'png'],
-	['AMSRE_Brightness_Temp_89V_Night', '2km', 'png'] ]
+	['AMSRE_Brightness_Temp_89V_Night', '2km', 'png'] 
+
+]
 
 
 

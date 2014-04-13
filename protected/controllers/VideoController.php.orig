@@ -31,7 +31,6 @@ class VideoController extends Controller
 		$baseUrl = Yii::app()->baseUrl; 
 		$cs = Yii::app()->getClientScript();
 		$cs->registerCssFile($baseUrl.'/css/imagegrid.css');
-		$cs->registerCssFile($baseUrl.'/css/loading.css');
 
 		$this->render('new');
 	}
@@ -62,8 +61,6 @@ class VideoController extends Controller
 	
 	public function actionStoreImage(){
 	
-
-
 		$input = 	$_GET['url'];
 		$dir = 		"videos/" . $_GET['dir'];
 		$number = 	$_GET['num'];
@@ -76,8 +73,6 @@ class VideoController extends Controller
 		$id = $this->padZeros($number);
 		
 		$output = $dir .'/i' . $id . '.' . $format;
-
-
 		if( ! file_exists($output) ){
 			file_put_contents($output, file_get_contents($input));
 			/*if($format == 'png'){
@@ -85,9 +80,9 @@ class VideoController extends Controller
 			}*/
 		}
 		
-		echo CJSON::encode(array(
-            'result' => 'done'
-        ));
+		/*echo CJSON::encode(array(
+            'result' => $id
+        ));*/
 	}
 
 	public function actionGenerateVideo(){

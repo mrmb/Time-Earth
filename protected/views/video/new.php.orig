@@ -1,5 +1,9 @@
 
 <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+
+
+
+
 <script type="text/javascript">
 
 	var url_array = new Array();
@@ -34,6 +38,7 @@
 			cache: false,
 			dataType: "json",
 			success: function(){
+				//alert("DOne");
 			} 
 		});
 	}
@@ -63,20 +68,18 @@
 	function checkDoneLoop(folder, itemNumber, format){
 		checkDone(folder, itemNumber, format);
 		if(checkDoneVar){
-			window.location = "index.php?r=video/social&name=" +  folder ;
-			// generateGif(folder, format );
+			generateGif(folder, format );
 			clearInterval(myLoop);
 		}else{
 			checkDoneStopper++;
-			if(checkDoneStopper==itemNumber){
+			if(checkDoneStopper==10){
 				clearInterval(myLoop);
-				$("#floatingBarsG").hide();
+				alert('Se ha alcanzado el tiempo limite. Vuelva a intentar mas tarde.');
 			}
 		}
 	}
 	
 	function createVideo(){
-		$("#floatingBarsG").show();
 		
 		var array_values = $('input[name="image_checkbox"]:checked') ;
  	
@@ -87,17 +90,26 @@
  			for(var i=0 ; i <  array_values.length ; i++){ 				
  				download( folder , url_array[ array_values[i].value ] , i, items[$("#options_values").val()][2]);
  			}
+
+ 			//generateGif(folder);
+ 			window.location = "index.php?r=video/social&name=" + "im1.jpg";
 			
 			myLoop = setInterval(function(){checkDoneLoop(folder, array_values.length, items[$("#options_values").val()][2]);}, 5000);
 			
+
  		} else {
  			alert("Add pictures to create a video.");
  		}
+
 	}
 
 	$(function() {
 
+
+
 		// options_values
+
+
 
 		var change_interval;
 		//var show_date = new Date('2014-01-01');
@@ -255,6 +267,8 @@
 
 			$("#images_grid").html(html_images);
 		}
+
+		
 		
 
 		// Add items to combo
@@ -296,21 +310,6 @@
 				<div id="images_grid"></div>
 			</ul>
 		</div>
-
-	</div>	
-
-	<div id="floatingBarsG">
-		<div class="blockG" id="rotateG_01"></div>
-		<div class="blockG" id="rotateG_02"></div>
-		<div class="blockG" id="rotateG_03"></div>
-		<div class="blockG" id="rotateG_04"></div>
-		<div class="blockG" id="rotateG_05"></div>
-		<div class="blockG" id="rotateG_06"></div>
-		<div class="blockG" id="rotateG_07"></div>
-		<div class="blockG" id="rotateG_08"></div>
-	</div> 
-
-
 		<!--/#four-columns-->
 
-	
+	</div>	
