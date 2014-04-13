@@ -8,12 +8,13 @@
 
 	var url_array = new Array();
 
-	function generateGif(folder){
+	function generateGif(folder, format){
 		$.ajax({
 			type: "GET",
 			url: "/index.php?r=video/GenerateVideo",
 			data: ( {
-				'dir': folder
+				'dir': folder,
+				'format': format
 			} ) ,
 			cache: false,
 			dataType: "json",
@@ -24,14 +25,15 @@
 	}
 
 
-	function download(folder, link, id){
+	function download(folder, link, id, format){
 		$.ajax({
 			type: "GET",
 			url: "/index.php?r=video/StoreImage",
 			data: ( {
 				'url': link,
 				'dir': folder,
-				'num': id
+				'num': id,
+				'format': format
 			} ) ,
 			cache: false,
 			dataType: "json",
@@ -41,7 +43,42 @@
 		});
 	}
 
+	function checkDone(folder, itemN, format){
+		$.ajax({
+			type: "GET",
+			url: "/index.php?r=video/CheckImages",
+			data: ( {
+				'folder': folder,
+				'itemN': itemN,
+				'format': format
+			} ) ,
+			cache: false,
+			dataType: "json",
+			success: function(data){
+				checkDoneVar = data.result;
+			} 
+		});
+	}
+	
+	var checkDoneVar = false;
+	var checkDoneStopper = 0;
+	
+	var myLoop;
 
+	function checkDoneLoop(folder, itemNumber, format){
+		checkDone(folder, itemNumber, format);
+		if(checkDoneVar){
+			generateGif(folder, format );
+			clearInterval(myLoop);
+		}else{
+			checkDoneStopper++;
+			if(checkDoneStopper==10){
+				clearInterval(myLoop);
+				alert('Se ha alcanzado el tiempo limite. Vuelva a intentar mas tarde.');
+			}
+		}
+	}
+	
 	function createVideo(){
 		
 		var array_values = $('input[name="image_checkbox"]:checked') ;
@@ -51,32 +88,19 @@
  			var folder = d.getTime();
  			
  			for(var i=0 ; i <  array_values.length ; i++){ 				
- 				download( folder , url_array[ array_values[i].value ] , i);
+ 				download( folder , url_array[ array_values[i].value ] , i, items[$("#options_values").val()][2]);
  			}
 
  			//generateGif(folder);
  			window.location = "index.php?r=video/social&name=" + "im1.jpg";
+			
+			myLoop = setInterval(function(){checkDoneLoop(folder, array_values.length, items[$("#options_values").val()][2]);}, 5000);
+			
 
  		} else {
  			alert("Add pictures to create a video.");
  		}
 
-
-
-		// $.ajax({
-  //         type: "GET",
-  //         url: "/earth/index.php?r=video/StoreImage",
-  //         data: ( {
-  //         	'url':'http://www.menucool.com/slider/prod/image-slider-5.jpg',
-  //         	'dir':'case3',
-  //         	'num': '3'
-  //         } ) ,
-  //         cache: false,
-  //         dataType: "json",
-  //         success: function(){
-  //         	alert("DOne");
-  //         } 
-  //       }); 
 	}
 
 	$(function() {
@@ -258,10 +282,7 @@
 
 		// Set images
 
-		
 		pictures(0);
-
-
 
 		$('#options_values').change(function () {
 			pictures( $(this).val() );
