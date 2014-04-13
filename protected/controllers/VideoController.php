@@ -12,6 +12,9 @@ class VideoController extends Controller
 	public $layout='//layouts/internal2';
 	
 
+	public function actionVideo(){
+		$this->render('video');
+	}
 
 	public function actionIndex(){
 		// $baseUrl = Yii::app()->baseUrl; 

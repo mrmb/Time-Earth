@@ -11,14 +11,12 @@ class VideoController extends Controller
 
 	public $layout='//layouts/internal2';
 	
+	public function actionVideo(){
+		$this->render('index');
+	}
 
 
 	public function actionIndex(){
-		// $baseUrl = Yii::app()->baseUrl; 
-		// $cs = Yii::app()->getClientScript();
-		// $cs->registerScriptFile($baseUrl.'/js/map.js');
-
-
 		$this->render('index');
 	}
 
@@ -138,4 +136,7 @@ class VideoController extends Controller
             'result' => $id
         ));*/
 	}
+
+
+
 }
