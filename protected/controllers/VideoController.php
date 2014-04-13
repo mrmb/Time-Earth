@@ -27,7 +27,11 @@ class VideoController extends Controller
 		$baseUrl = Yii::app()->baseUrl; 
 		$cs = Yii::app()->getClientScript();
 		$cs->registerCssFile($baseUrl.'/css/imagegrid.css');
+<<<<<<< HEAD
+		//$cs->registerScriptFile($baseUrl.'/js/GobsObject.js');
+=======
 		// $cs->registerScriptFile($baseUrl.'/js/GobsObject.js');
+>>>>>>> 86adc93c336829f53795d1ca45a2ec63f3d57479
 
 // imagegrid
 		$this->render('new');
