@@ -59,9 +59,9 @@
    //    lon = xy.lng() ;
   	// }
 
-     contentString += "Fecha Inicial : <input type='date' id='date_s'> </br>" ;
-     contentString += "Fecha Final   : <input type='date' id='date_e' style='left:2%; position:relative;' > </br>";
-     contentString += "Zoom          : <input type='number' id='zoom' style='left:13%; position:relative;' > </br>";
+     contentString += "Fecha Inicial : <input type='date' id='date_s' style='height: auto;' value='10/20/2012' > </br>" ;
+     contentString += "Fecha Final   : <input type='date' id='date_e' style='left:2%; position:relative; height: auto;' value='10/20/2013'> </br>";
+     contentString += "Zoom          : <input type='number' id='zoom' style='left:13%; position:relative; height: auto;'> </br>";
 
      
      
@@ -75,10 +75,14 @@
   }
 
   function newVideo(lat,lon){
-      date_s = $("#date_s").val();
-      date_e = $("#date_e").val();
+      d1 = new Date( $("#date_s").val() );
+      d2 = new Date( $("#date_e").val() );
+
+      date_1 = d1.getMonth() + 1 + "/" + d1.getDate() + "/" + d1.getFullYear() ;
+      date_2 = d2.getMonth() + 1 + "/" + d2.getDate() + "/" + d2.getFullYear() ;
+    
       zoom   = $("#zoom").val();
-      window.location = "index.php?r=video/new&from=" + date_s + "&to=" + date_e + "&lat=" + lat + "&lon=" + lon + "&z=" + zoom ;
+      window.location = "index.php?r=video/new&from=" + date_1 + "&to=" + date_2 + "&lat=" + lat + "&lon=" + lon + "&z=" + zoom ;
   }
 
   function addPoint(event) {

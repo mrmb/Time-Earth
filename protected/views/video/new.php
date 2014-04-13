@@ -146,13 +146,34 @@
 						
 						
 			if(validate(query_string.from.split("-").join("/"), query_string.to.split("-").join("/"), query_string.lon, query_string.lat, query_string.z)){
-				getTiles(query_string.from.split("-").join("/"), days_between(query_string.from.split("-").join("/"), query_string.to.split("-").join("/")), query_string.lon, query_string.lat, query_string.z);
+				return getTiles(query_string.from.split("-").join("/"), days_between(query_string.from.split("-").join("/"), query_string.to.split("-").join("/")), query_string.lon, query_string.lat, query_string.z);
 			}else{
-				alert('Valores Invalidos')
+				alert('Valores Invalidos');
+				return null;
+
 			}
 		}
+		
 		url_array = parseURL(window.location.search.substring(1));
 
+
+
+		// Set images
+
+		var html_images = ""; 
+
+
+		for(var i = 0 ; i < url_array.length ; i++ ){
+			
+			html_images += '<li>';
+			html_images += '<input type="checkbox" style="position:relative; top:-10px;">';
+			html_images += '<img src="' + url_array[i] + '" />';
+			html_images += '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>';
+			html_images += "</li>";
+		}
+
+		console.log(html_images);
+		$("#images_grid").html(html_images);
 	});
 
 	
