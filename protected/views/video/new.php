@@ -164,7 +164,7 @@
 
 
 		for(var i = 0 ; i < url_array.length ; i++ ){
-			
+			console.log(url_array[i]);
 			html_images += '<li>';
 			html_images += '<input type="checkbox" style="position:relative; top:-10px;">';
 			html_images += '<img src="' + url_array[i] + '" />';
