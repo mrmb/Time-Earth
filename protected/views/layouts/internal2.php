@@ -94,7 +94,7 @@
 				'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'Satellite Story', 'url'=>array('/video/index')),
-				array('label'=>'Animation BS', 'url'=>array('/site/contact')),
+				array('label'=>'Animation BS', 'url'=>array('/video/video')),
 				// array('label'=>'Best Topics', 'url'=>array('/site/contact')),
 				// array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				// array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)

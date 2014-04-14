@@ -586,3 +586,24 @@ REQUEST_URI=/index.php?r=video/AnalyzeVideo&dir=1397409806555&format=jpg&_=13974
 in C:\Users\cavpollo\Documents\GitHub\Time-Earth\protected\controllers\VideoController.php (126)
 in C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php (13)
 >>>>>>> 390a780b8636f500d22401be94199d6ec326a472
+2014/04/13 23:36:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "video".' in C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(270): CController->missingAction('video')
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): CController->run('video')
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/video')
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/video
+HTTP_REFERER=http://localhost/index.php?r=video/index
+---
+2014/04/13 23:36:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "video".' in C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CController.php(270): CController->missingAction('video')
+#1 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(282): CController->run('video')
+#2 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/video')
+#3 C:\Users\cavpollo\Documents\GitHub\Time-Earth\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\Users\cavpollo\Documents\GitHub\Time-Earth\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/video
+---

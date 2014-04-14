@@ -1,3 +1,8 @@
 
-  
-  	<video src="demo.mp4" controls autoplay >HTML5 Video is required for this example</video> 
+ 
+ 
+<img src="/bestgifs/1.gif">
+<img src="/bestgifs/2.gif">
+<img src="/bestgifs/3.gif">
+<img src="/bestgifs/4.gif">
+<img src="/bestgifs/5.gif">
